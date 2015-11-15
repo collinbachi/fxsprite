@@ -14,14 +14,21 @@ public class Main extends Application {
         primaryStage.setTitle("Sprite Test");
         
         Group root = new Group();
-        // Create a place to see the shapes
         Scene myScene = new Scene(root, 400, 650, Color.WHITE);
         
-        Image i = new Image(getClass().getClassLoader().getResourceAsStream("truck.png"));
-        Sprite s = new Sprite("sonicsprites.png", 87, 125);
+        Sprite s = new Sprite("megaman.png", 50, 49);
+        Sprite q = new Sprite("megaman.png", 50, 49);
+        q.setX(200);
+        q.setY(200);;
+        root.getChildren().add(q);
         root.getChildren().add(s);
-        s.limitRowColumns(1, 8); 
-        s.play(1);
+        s.label(4, "powerup");
+        s.playTimes("powerup", 10);
+        s.pause();
+        s.replay();
+        q.setFPS(4);
+        q.limitRowColumns(2, 9);
+        q.play(2);
         primaryStage.setScene(myScene);
         primaryStage.show();
     }
